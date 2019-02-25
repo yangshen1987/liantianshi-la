@@ -1,5 +1,16 @@
 
 window._ = require('lodash');
+import Echo from "laravel-echo";
+const client = require('pusher-js')
+window.Echo=new Echo({
+    broadcaster: 'pusher',
+    key: 'your-pusher-key',
+    client: client
+});
+Echo.channel('message')
+    .listen('Talk', (e)=>{
+        console.log(e.msgObj.msg)
+    });
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support

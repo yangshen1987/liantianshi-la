@@ -14,3 +14,6 @@
 Broadcast::channel('App.User.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
 });
+Broadcast::channel('talk.{message_id}', function ( $user, $message_id) {
+    return (int) $user->id === (int) $message_id;
+});
